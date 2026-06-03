@@ -166,6 +166,68 @@ app_license = "mit"
 # 	],
 # }
 
+doc_events = {
+    "Sales Order": {
+        "before_insert": "assessment1.api.sales_order.set_naming_series",
+         "on_submit": "assessment1.api.procurement.create_material_request_on_so_submit"
+    },
+     "Work Order": {
+        "on_submit": "assessment1.api.manufacturing.validate_material_availability"
+    },
+       "Salary Slip": {
+        "before_save": "assessment1.api.hr.calculate_overtime_on_salary_slip"
+    },
+       "Payment Entry": {
+        "on_submit": "assessment1.api.rewards.create_reward_log_on_payment"
+    }
+}
+
+scheduler_events = {
+    "daily": [
+        "assessment1.api.asset_alerts.send_maintenance_alerts"
+    ]
+}
+
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+             ["name", "in", ["Customer-custom_customer_type",
+                             "Attendance-custom_overtime_hours"
+                             ]]
+        ]
+    },
+    {
+        "doctype": "Number Card",
+        "filters": [
+               ["name", "in", [
+                "Sales Orders-1",
+                "Pending Purchases-1",
+                "Production In Progress-1",
+                "Production Completed-1",
+                "Total Employees-2",
+                "Total Reward Points"
+            ]]
+        ]
+    },
+    {
+        "doctype": "Report",
+        "filters": [
+            ["name", "in", [
+                "TechFab Management Report",
+                "Department Wise Payroll Summary"
+            ]]
+        ]
+    },
+    {
+        "doctype": "Workspace",
+        "filters": [
+            ["name", "=", "TechFab Dashboard"]
+        ]
+    }
+
+]
+
 # Testing
 # -------
 

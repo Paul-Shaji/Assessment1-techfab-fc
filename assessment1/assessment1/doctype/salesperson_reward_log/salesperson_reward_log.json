@@ -1,0 +1,103 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "custom": 0,
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "sales_person",
+        "payment_entry",
+        "customer",
+        "collection_amount",
+        "points_earned",
+        "date",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "sales_person",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Sales Person",
+            "options": "Sales Person",
+            "reqd": 1
+        },
+        {
+            "fieldname": "payment_entry",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Payment Entry",
+            "options": "Payment Entry",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Customer",
+            "options": "Customer"
+        },
+        {
+            "fieldname": "collection_amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Collection Amount",
+            "reqd": 1
+        },
+        {
+            "fieldname": "points_earned",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Points Earned",
+            "reqd": 1
+        },
+        {
+            "fieldname": "date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        }
+    ],
+    "links": [],
+    "module": "Assessment1",
+    "name": "Salesperson Reward Log",
+    "naming_rule": "autoname",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales Manager",
+            "share": 0,
+            "write": 0
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}
