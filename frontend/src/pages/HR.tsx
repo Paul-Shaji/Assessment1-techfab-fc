@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Users } from "lucide-react";
 import { useApi } from "../lib/useApi";
 import { getHRDashboard } from "../api/dashboard";
 import { PageHeader, Panel } from "../components/Panel";
@@ -110,6 +111,7 @@ export default function HR() {
   return (
     <>
       <PageHeader
+        icon={Users}
         title="HR & Payroll"
         subtitle={
           data

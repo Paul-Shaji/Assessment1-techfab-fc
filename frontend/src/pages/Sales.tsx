@@ -1,3 +1,4 @@
+import { ShoppingCart } from "lucide-react";
 import { useApi } from "../lib/useApi";
 import { getSalesDashboard } from "../api/dashboard";
 import { PageHeader, Panel } from "../components/Panel";
@@ -143,6 +144,7 @@ export default function Sales() {
   return (
     <>
       <PageHeader
+        icon={ShoppingCart}
         title="Sales"
         subtitle="Orders by customer category and salesperson rewards"
       />

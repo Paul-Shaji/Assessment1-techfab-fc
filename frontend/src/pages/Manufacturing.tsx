@@ -1,3 +1,4 @@
+import { Factory } from "lucide-react";
 import { useApi } from "../lib/useApi";
 import { getManufacturingDashboard } from "../api/dashboard";
 import { PageHeader, Panel } from "../components/Panel";
@@ -136,6 +137,7 @@ export default function Manufacturing() {
   return (
     <>
       <PageHeader
+        icon={Factory}
         title="Manufacturing"
         subtitle="Production status across control-panel items"
       />

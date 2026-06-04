@@ -1,3 +1,4 @@
+import { Package } from "lucide-react";
 import { useApi } from "../lib/useApi";
 import { getPurchaseDashboard } from "../api/dashboard";
 import { PageHeader, Panel } from "../components/Panel";
@@ -109,6 +110,7 @@ export default function Purchase() {
   return (
     <>
       <PageHeader
+        icon={Package}
         title="Purchase"
         subtitle="Raw-material availability, shortages and open orders"
       />

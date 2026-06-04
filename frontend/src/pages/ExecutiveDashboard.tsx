@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FileBarChart, IndianRupee, X } from "lucide-react";
+import { FileBarChart, IndianRupee, LayoutDashboard, X } from "lucide-react";
 import { useApi } from "../lib/useApi";
 import {
   getDashboardStats,
@@ -43,6 +43,7 @@ export default function ExecutiveDashboard() {
   return (
     <>
       <PageHeader
+        icon={LayoutDashboard}
         title="Management Dashboard"
         subtitle="TechFab Industries — executive overview"
       />

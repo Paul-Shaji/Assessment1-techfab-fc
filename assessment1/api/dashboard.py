@@ -1,19 +1,3 @@
-"""
-TechFab dashboard API.
-
-Whitelisted endpoints consumed by the React frontend (frontend/).
-This module is ADDITIVE — it only reads data and reuses business logic that
-already lives in the other api/ modules and the report/ modules. It does not
-modify any core Frappe/ERPNext behaviour.
-
-Auth model: cookie session (httpOnly `sid`) established by login(). Every
-role-specific fetcher enforces access server-side via _require_any_role — the
-client-side route guards are UX only and are never trusted.
-
-Call paths from the SPA:
-    /api/method/assessment1.api.dashboard.<function_name>
-"""
-
 import frappe
 from frappe import _
 from frappe.auth import LoginManager

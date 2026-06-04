@@ -1,3 +1,4 @@
+import { Wrench } from "lucide-react";
 import { useApi } from "../lib/useApi";
 import { getAssetDashboard } from "../api/dashboard";
 import { PageHeader, Panel } from "../components/Panel";
@@ -83,6 +84,7 @@ export default function Assets() {
   return (
     <>
       <PageHeader
+        icon={Wrench}
         title="Assets & Service"
         subtitle="Factory equipment and preventive maintenance (90-day window)"
       />
