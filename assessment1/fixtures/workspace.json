@@ -63,12 +63,19 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [
+  
+ "roles": [
    {
     "parent": "TechFab Dashboard",
     "parentfield": "roles",
     "parenttype": "Workspace",
     "role": "Administrator"
+   },
+   {
+    "parent": "TechFab Dashboard",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "System Manager"
    },
    {
     "parent": "TechFab Dashboard",
@@ -81,6 +88,42 @@
     "parentfield": "roles",
     "parenttype": "Workspace",
     "role": "Sales User"
+   },
+   {
+    "parent": "TechFab Dashboard",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "TechFab Dashboard",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "TechFab Dashboard",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "TechFab Dashboard",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "TechFab Dashboard",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "HR Manager"
+   },
+   {
+    "parent": "TechFab Dashboard",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "HR User"
    }
   ],
   "sequence_id": 0.0,
