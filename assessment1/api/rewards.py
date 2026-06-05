@@ -17,6 +17,8 @@ def calculate_reward_points(collection_amount):
     50,000 - 1,00,000  → 8 points flat
     Above 1,00,000     → 15 points flat
     """
+    if collection_amount <= 0:
+        return 0
     if collection_amount < 50000:
         return int(collection_amount // 10000)
     elif collection_amount <= 100000:

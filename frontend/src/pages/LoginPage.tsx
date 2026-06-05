@@ -42,10 +42,11 @@ export default function LoginPage() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
+        
       }}
     >
       {/* Overlay for better contrast */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-black/40" />
       
       {/* Brand header - positioned at top */}
       <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between p-6 lg:p-8">

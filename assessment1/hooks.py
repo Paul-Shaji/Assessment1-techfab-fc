@@ -166,6 +166,15 @@ app_license = "mit"
 # 	],
 # }
 
+
+before_app_boot = "assessment1.custom.fetch_shift_override"
+before_request = [
+    "assessment1.custom.fetch_shift_override.apply_patch", # Your existing checkin patch
+    "assessment1.custom.shift_override.apply_shift_patch"  # <--- NEW SHIFT TYPE PATCH
+]
+
+
+
 doc_events = {
     "Sales Order": {
         "before_insert": "assessment1.api.sales_order.set_naming_series",
@@ -174,9 +183,18 @@ doc_events = {
      "Work Order": {
         "on_submit": "assessment1.api.manufacturing.validate_material_availability"
     },
+     
        "Salary Slip": {
-        "before_save": "assessment1.api.hr.calculate_overtime_on_salary_slip"
+        "before_validate": "assessment1.api.hr.calculate_overtime_on_salary_slip"
     },
+    "Attendance": {
+        # "before_save": "assessment1.api.hr.calculate_attendance_overtime",
+        "on_submit": "assessment1.api.hr.create_overtime_log_from_attendance"
+    },
+     
+    #    "Salary Slip": {
+    #     "before_save": "assessment1.api.hr.calculate_overtime_on_salary_slip"
+    # },
        "Payment Entry": {
         "on_submit": "assessment1.api.rewards.create_reward_log_on_payment"
     }
@@ -227,6 +245,14 @@ fixtures = [
     }
 
 ]
+
+
+
+override_whitelisted_methods = {
+    "hrms.hr.doctype.shift_type.shift_type.process_auto_attendance": 
+"assessment1.custom.auto_attendance_override.process_bulk_attendance_override"
+}
+
 
 # Testing
 # -------
