@@ -123,12 +123,20 @@ def force_auto_attendance(*args, **kwargs):
         except Exception:
             return
 
+    # Calculate overtime directly here — Production department only
+    custom_overtime_hours = 0.0
+    if status == "Present" and working_hours > 0:
+        dept = frappe.db.get_value("Employee", employee, "department") or ""
+        if "Production" in dept:
+            standard_hours = _get_shift_standard_hours(shift_name)
+            custom_overtime_hours = round(max(0.0, working_hours - standard_hours), 2)
+
     target_doc.status = status
-    target_doc.shift = shift_name 
+    target_doc.shift = shift_name
     target_doc.in_time = in_time
     target_doc.out_time = out_time
     target_doc.working_hours = working_hours
-    target_doc.overtime_hours = 0.0 
+    target_doc.custom_overtime_hours = custom_overtime_hours
     target_doc.late_entry = late_entry
     target_doc.early_exit = early_exit
     target_doc.early_entry = early_entry
@@ -292,4 +300,20 @@ def process_bulk_attendance_override(shift_type_name=None, **kwargs):
 
 def get_employee_shift_hours(employee):
     return 9
+
+
+def _get_shift_standard_hours(shift_name, default=8.0):
+    """Return standard working hours for a Shift Type (end_time - start_time)."""
+    if not shift_name:
+        return default
+    shift = frappe.db.get_value(
+        "Shift Type", shift_name, ["start_time", "end_time"], as_dict=True
+    )
+    if not shift or shift.start_time is None or shift.end_time is None:
+        return default
+    try:
+        duration = (shift.end_time - shift.start_time).total_seconds()
+        return duration / 3600 if duration > 0 else default
+    except Exception:
+        return default
   
